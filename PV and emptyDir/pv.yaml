@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: brij-pv
+  namespace: default
+spec:
+  azureFile:
+    secretName: azure-secret
+    shareName: aks-file-storage
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: default
+  capacity:
+    storage: 5Gi

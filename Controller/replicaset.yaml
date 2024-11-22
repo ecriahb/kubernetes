@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app-rs
+  namespace: default
+spec:
+  replicas: 6
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+        - rs
+  template:
+    metadata:
+      name: nginx-rs
+      labels:
+        app: rs
+    spec:
+      containers:
+        - name: nginx-rs
+          image: nginx:stable-perl
+          ports:
+          - containerPort: 80

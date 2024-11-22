@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chrome-pod
+  namespace: brijesh
+  labels:
+    app: chrome
+spec:
+  containers:
+    - name: chrome-container
+      image: selenium/standalone-chrome
+      ports:
+        - containerPort: 4444

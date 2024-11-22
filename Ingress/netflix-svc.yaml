@@ -1,0 +1,11 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: netflix-svc
+spec:
+  selector:
+    app: netflix-deploy
+  ports:
+  - port: 80
+    targetPort: 80

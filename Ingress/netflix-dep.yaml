@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netflix-deploy
+  template:
+    metadata:
+      labels:
+        app: netflix-deploy
+    spec:
+      containers:
+      - name: netflix-deploy
+        image: devopsinsiders/netflix-clone
+        ports:
+        - containerPort: 80
